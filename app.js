@@ -24,7 +24,6 @@ app.all('*', (req, res, next) => {
 
 app.use((err, req, res, next) => {
     const { statusCode = 500 } = err;
-    console.log(err.message);
     if (!err.message | (statusCode === 500))
         err.message = 'Internal Server Error';
     logger.error(err.message);
